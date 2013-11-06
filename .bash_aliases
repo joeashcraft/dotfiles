@@ -48,3 +48,7 @@ function ii()   # get current host related info
   echo -e "\n${RED}Memory stats :$NC " ; free -m
   echo
 }
+
+function psgrep() {
+    ps -fp $(pgrep -d, "$*")
+}
