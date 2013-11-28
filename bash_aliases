@@ -18,6 +18,10 @@ alias less="less -FR"
 alias ld="ls -lhd"
 alias ping="ping -c 5"
 
+## git
+alias g="git status"
+
+
 function www {
     python -m SimpleHTTPServer $1
 }
