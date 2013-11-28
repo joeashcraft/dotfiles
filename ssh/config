@@ -1,7 +1,92 @@
-Host	centos640
-	HostName	dfw.cybernixon.net
+Host largo
 	User	joe
-	ProxyCommand	none
+	Port	42022
+	HostName	cybernixon1.h4ck.me
 
-#Host	miner0
-#Host	miner1
+Host httpd01
+	User	joe
+	HostName	10.181.1.42	
+
+Host httpds01
+	User	joe
+	HostName	10.181.6.229	
+
+Host app01
+	User	root
+	HostName	162.209.97.58
+	IdentityFile	~/.ssh/rax_app01.tests.joeashcraft.com.id_rsa.priv
+Host app02
+	User	root
+	HostName	162.209.99.132
+Host pcs0
+        User    root
+        HostName        162.242.212.97
+        ProxyCommand    none
+
+Host bf1
+	User	rack
+	HostName	162.242.214.236
+        ProxyCommand    none
+Host bf2
+	User	rack
+	HostName	162.242.213.79
+        ProxyCommand    none
+Host bf3
+	User	rack
+	HostName	162.242.217.66
+        ProxyCommand    none
+
+#Host magento
+#	User	root
+#	HostName	162.209.99.48
+#	IdentityFile	~/.ssh/magento
+
+
+## Other shared
+Host	lon
+  HostName 162.13.88.7
+  User root
+
+
+## Barnum
+Host ord-test
+  HostName 192.237.180.115
+  User root
+
+
+## Team Shared
+Host 2dfw
+    HostName 192.237.217.149
+    Port 22
+    ProxyCommand none
+    User root
+
+Host 2iad
+    HostName 162.209.99.138
+    Port 22
+    ProxyCommand none
+    User root
+
+Host 2ord
+    HostName 192.237.186.127
+    Port 22
+    ProxyCommand none
+    User root
+
+Host 2syd
+    HostName 119.9.13.119
+    Port 22
+    ProxyCommand none
+    User root
+
+Host 2lon 
+    HostName 162.13.14.92
+    Port 22
+    ProxyCommand none
+    User root
+
+Host 2hkg
+   HostName 119.9.72.60
+   Port 22
+   ProxyCommand none
+   User root
