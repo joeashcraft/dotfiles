@@ -2,3 +2,6 @@ Host	centos640
 	HostName	dfw.cybernixon.net
 	User	joe
 	ProxyCommand	none
+
+#Host	miner0
+#Host	miner1
