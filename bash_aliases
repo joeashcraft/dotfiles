@@ -20,6 +20,7 @@ alias ping="ping -c 5"
 
 ## git
 alias g="git status"
+alias gp="git pull"
 
 
 function www {
