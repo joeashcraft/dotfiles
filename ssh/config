@@ -1,0 +1,4 @@
+Host	centos640
+	HostName	dfw.cybernixon.net
+	User	joe
+	ProxyCommand	none
