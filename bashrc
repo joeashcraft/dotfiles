@@ -30,8 +30,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
+[[ -f ~/dotfiles/bash_aliases ]] && source ~/dotfiles/bash_aliases
 
 bind space:magic-space
