@@ -1,12 +1,6 @@
-## PACKAGE MANAGEMENT
-alias ins="sudo yum -y install"
-alias rem="sudo yum -y remove"
-alias psch="yum -q search"
-alias update="sudo yum -y -q check-update"
-alias upgrade="sudo yum -y update"
-alias info="yum -q info"
+[[ -f /etc/lsb-release ]] && source bash_aliases.deb
+[[ -f /etc/redhat-release ]] && source bash_aliases.rhel
 
-## NAVIGATION
 alias ..="cd .."
 
 alias ll="ls -hl"
