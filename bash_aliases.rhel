@@ -1,4 +1,3 @@
-## PACKAGE MANAGEMENT
 alias ins="yum -y install"
 alias rem="yum -y remove"
 alias psch="yum -q search"
