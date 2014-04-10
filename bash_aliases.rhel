@@ -1,3 +1,7 @@
-alias ins="yum install"
-alias psch="yum search"
-alias psho="yum info"
+## PACKAGE MANAGEMENT
+alias ins="yum -y install"
+alias rem="yum -y remove"
+alias psch="yum -q search"
+alias psho="yum -q info"
+alias update="yum -y -q check-update"
+alias upgrade="yum -y update"
