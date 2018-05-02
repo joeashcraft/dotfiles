@@ -1,0 +1,7 @@
+## PACKAGE MANAGEMENT
+alias ins="apt-get install"
+alias rem="apt-get remove"
+alias psch="apt-cache search"
+alias psho="apt-cache show"
+alias update="apt-get update"
+alias upgrade="apt-get upgrade"
