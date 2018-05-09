@@ -2,4 +2,4 @@
 
 brew update
 brew upgrade
-brew install stow
+brew install stow git-crypt
