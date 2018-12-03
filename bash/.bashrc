@@ -32,6 +32,7 @@ shopt -s checkwinsize
 
 
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
-[[ -f ~/dotfiles/bash_aliases ]] && source ~/dotfiles/bash_aliases
+[[ -f ~/dotfiles/bash/.bash_aliases ]] && source ~/dotfiles/bash/.bash_aliases
+[[ -f ~/dotfiles/bash/.bash_functions ]] && source ~/dotfiles/bash/.bash_functions
 
 bind space:magic-space

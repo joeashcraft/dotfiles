@@ -16,12 +16,6 @@ alias ping="ping -c 5"
 alias g="git status"
 alias gp="git pull"
 
-
-function www {
-    python -m SimpleHTTPServer $1
-}
-
-
 ## -> Prevents accidentally clobbering files.
 alias rm='rm -iv --preserve-root'
 alias cp='cp -iv'
@@ -30,24 +24,3 @@ alias mkdir='mkdir -p'
 
 alias which='type -all'
 
-
-function myip {
-  echo -n "External IP: "
-  curl -l ifconfig.me; echo
-}
-
-
-function ii()   # get current host related info
-{
-  echo -e "\nYou are logged on \e[0;34m $HOSTNAME\e[m"
-  echo -e "\nAdditionnal information:$NC " ; uname -a
-  echo -e "\n${RED}Users logged on:$NC " ; w -h
-  echo -e "\n${RED}Current date :$NC " ; date
-  echo -e "\n${RED}Machine stats :$NC " ; uptime
-  echo -e "\n${RED}Memory stats :$NC " ; free -m
-  echo
-}
-
-function psgrep() {
-    ps -fp $(pgrep -d, "$*")
-}
