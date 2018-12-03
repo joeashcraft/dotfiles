@@ -1,3 +1,7 @@
+set nocompatible
+set modeline
+set modelines=5
+
 "====[ Make the 81st column stand out ]====================
 
     " EITHER the entire 81st column, full-screen...
@@ -36,3 +40,15 @@
 
     exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
     set list
+
+"====[ PEP 8 Indenation ] =====
+"---- https://realpython.com/vim-and-python-a-match-made-in-heaven/
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
