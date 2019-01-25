@@ -1,12 +1,13 @@
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-fi
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-PS1="[\u@\H:\w]\$ "
 
+########################################
+###           bash options           ###
+########################################
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL="erasedups:ignoreboth"
 
@@ -16,6 +17,9 @@ export HISTSIZE=100000
 
 # history should ignore 'exit' command
 export HISTIGNORE="&:[ ]*:exit"
+
+# history timestamps
+export HISTTIMEFORMAT="%F %T "
 
 # history should append, not overwrite
 shopt -s histappend
@@ -27,12 +31,55 @@ shopt -s cmdhist
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# Perform history expansion on the current line and insert a space.
+bind space:magic-space
+
+
+########################################
+###           Util Options           ###
+########################################
+# make less more friendly for non-text input files (e.g. gzip), see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 
-[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
-[[ -f ~/dotfiles/bash/.bash_aliases ]] && source ~/dotfiles/bash/.bash_aliases
-[[ -f ~/dotfiles/bash/.bash_functions ]] && source ~/dotfiles/bash/.bash_functions
+########################################
+###            Python Dev            ###
+########################################
+export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+export WORKON_HOME=$HOME/.virtualenvs
+export PATH="/usr/local/opt/ansible@2.0/bin:$PATH"
 
-bind space:magic-space
+export PATH=~/bin:$PATH
+
+
+
+## exports before source'ing!
+declare -a files_to_source
+files_to_source=(
+  "/etc/bash_completion"
+  "/usr/local/etc/bash_completion"
+  ".bash_colors"
+  ".bash_aliases"
+  ".bash_functions"
+  # ".bash_profile"
+  ".bashrc.mac"
+  ".bashrc.work"
+  ".openstack_auth"
+  "$(brew --prefix)/etc/bash_completion.d/brew"
+  #"/usr/local/bin/virtualenvwrapper_lazy.sh"
+  "/usr/local/etc/bash_completion.d/pass"
+  ".pyenv/versions/anaconda3-5.2.0/etc/profile.d/conda.sh"
+  ".iterm2_shell_integration.bash"
+)
+for ff in ${files_to_source[@]}; do
+  [[ -f "$ff" ]] && source "$ff"
+done
+
+# If id command returns zero, you’ve root access.
+if [ $(id -u) -eq 0 ];
+then # you are root, set red colour prompt
+  PS1="\[$(tput setaf 1)\]\u@\h:\w #\[$(tput sgr0)\]"
+else # normal
+#  PS1="[\[\033[32m\]\u\[\033[0m\]@\[\033[34m\]\h \[\033[31m\]\w\[\033[0m\]]$ "
+  PS1="$BRIGHT_GREEN\u$WHITE@$BRIGHT_BLUE\h $RED\w$WHITE$ "
+fi

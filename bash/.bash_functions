@@ -8,8 +8,7 @@ function httpServer() {
 }
 
 function myip {
-  echo -n "External IP: "
-  curl -l ifconfig.me; echo
+  curl -l ipinfo.io
 }
 
 
@@ -27,3 +26,34 @@ function ii()   # get current host related info
 function psgrep() {
     ps -fp $(pgrep -d, "$*")
 }
+
+
+function title {
+    echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD} "$*"\007"
+}
+
+## Edward's VENV Lite
+function vactivate {
+    PROJECT=$1
+    source ${WORKON_HOME}/${PROJECT}/bin/activate
+}
+
+
+function vrm {
+    PROJECT=$1
+    rm -rf ${WORKON_HOME}/${PROJECT}
+}
+
+
+function mkvenv {
+    PROJECT=$1
+    if (( $# > 1 ))
+    then
+        virtualenv ${WORKON_HOME}/${PROJECT} -p $2
+    else
+        python3 -m venv ${WORKON_HOME}/${PROJECT}
+    fi
+
+    vactivate $1
+}
+##/Edward's VENV Lite
