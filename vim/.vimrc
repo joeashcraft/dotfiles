@@ -437,6 +437,17 @@ let g:netrw_liststyle = 3
 "====[ line numbers on by default ]=====
 set number
 
-"====[ a few easy options by File Type ]====
+"====[ Options by File Type ]====
+"--- Shell Scripts ---
 autocmd FileType sh setlocal shiftwidth=2 tabstop=2
+
+"--- Python ---
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
