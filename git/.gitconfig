@@ -11,4 +11,9 @@
     st = status
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 [core]
-    excludesfile = /Users/joe6623/.gitignore_global
+    excludesfile = ~/.gitignore_global
+[includeIf "gitdir:/home/joe6*/**"]
+    path = ~/dotfiles/work/.gitconfig
+[includeIf "gitdir:/Users/joe6*/**"]
+    path = ~/dotfiles/work/.gitconfig
+
