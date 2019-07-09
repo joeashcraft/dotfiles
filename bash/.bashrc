@@ -9,14 +9,14 @@
 ###           bash options           ###
 ########################################
 # don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL="erasedups:ignoreboth"
+export HISTCONTROL="ignoredups"
 
 # increase size of history
 export HISTFILESIZE=500000
 export HISTSIZE=100000
 
 # history should ignore 'exit' command
-export HISTIGNORE="&:[ ]*:exit"
+export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear"
 
 # history timestamps
 export HISTTIMEFORMAT="%F %T "
@@ -47,10 +47,7 @@ bind space:magic-space
 ########################################
 export PYTHONWARNINGS="ignore:Unverified HTTPS request"
 export WORKON_HOME=$HOME/.virtualenvs
-export PATH="/usr/local/opt/ansible@2.0/bin:$PATH"
-
 export PATH=~/bin:$PATH
-
 
 
 ## exports before source'ing!
@@ -68,12 +65,15 @@ files_to_source=(
   "$(brew --prefix)/etc/bash_completion.d/brew"
   #"/usr/local/bin/virtualenvwrapper_lazy.sh"
   "/usr/local/etc/bash_completion.d/pass"
-  ".pyenv/versions/anaconda3-5.2.0/etc/profile.d/conda.sh"
+  #".pyenv/versions/anaconda3-5.2.0/etc/profile.d/conda.sh"
   ".iterm2_shell_integration.bash"
 )
 for ff in ${files_to_source[@]}; do
   [[ -f "$ff" ]] && source "$ff"
 done
+
+## pyenv auto activation
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # If id command returns zero, you’ve root access.
 if [ $(id -u) -eq 0 ];
