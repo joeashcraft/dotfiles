@@ -477,13 +477,36 @@ let pyindent_open_paren="&sw*2"
 
 "====[ Options by File Type ]====
 "--- Shell Scripts ---
-autocmd FileType sh    setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml  setlocal shiftwidth=2 tabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2
 
+<<<<<<< HEAD
+
+
+"=====[ https://stackoverflow.com/a/9994335/361507 ]=====
+set diffexpr=MyDiff()
+function! MyDiff()
+    let opt = ""
+    if exists("g:diffignore") && g:diffignore != ""
+        let opt = "-I " . g:diffignore . " "
+    endif
+    if &diffopt =~ "icase"
+        let opt = opt . "-i "
+    endif
+    if &diffopt =~ "iwhite"
+        let opt = opt . "-b "
+    endif
+    silent execute "!diff -a --binary " . opt . v:fname_in . " " .
+        \ v:fname_new . " > " . v:fname_out
+endfunction
+=======
 "--- Python ---
-autocmd Filetype python
-    \  setlocal  tabstop=4  softtabstop=4  shiftwidth=4  expandtab
-    \| setlocal  autoindent
-    \| setlocal  textwidth=79
-    \| setlocal  fileformat=unix
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+>>>>>>> 91a486ca7b1833bcdd31cf5110191fcbb0162910
 
