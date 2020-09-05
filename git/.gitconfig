@@ -17,3 +17,8 @@
 [includeIf "gitdir:/Users/joe6*/**"]
     path = ~/dotfiles/work/.gitconfig
 
+[backup]
+	directory = /Users/joe6623/tmp/git-backup
+	directory = /Users/joe6623/tmp/git-backup/
+	prefix-date = true
+	prefix-time = true

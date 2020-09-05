@@ -9,7 +9,8 @@ alias less="less -FR"
 alias ping="ping -c 5"
 alias sudoedit="sudo ${EDITOR:-vim}"
 alias vls="ls -1 ${WORKON_HOME}"
-alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+# alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias pipu="pip list --outdated --local --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U"
 alias ulocate="locate -d ${HOME}/.mlocate.db"
 function userdb {
     updatedb -U ${HOME} -o ${HOME}/.mlocate.db  --prune-bind-mounts yes --require-visibility no

@@ -8,6 +8,9 @@
 ########################################
 ###           bash options           ###
 ########################################
+# record history immediately, instead of at graceful logout
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL="ignoredups"
 
@@ -62,19 +65,21 @@ files_to_source=(
   ".bashrc.mac"
   ".bashrc.work"
   ".openstack_auth"
-  "$(brew --prefix)/etc/bash_completion.d/brew"
+  #"$(brew --prefix)/etc/bash_completion.d/brew"
   #"/usr/local/bin/virtualenvwrapper_lazy.sh"
   "/usr/local/etc/bash_completion.d/pass"
   #".pyenv/versions/anaconda3-5.2.0/etc/profile.d/conda.sh"
   ".iterm2_shell_integration.bash"
+  ".fzf.bash"
 )
 for ff in ${files_to_source[@]}; do
   [[ -f "$ff" ]] && source "$ff"
 done
 
 ## pyenv auto activation
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+PROMPT_DIRTRIM=2
 # If id command returns zero, you’ve root access.
 if [ $(id -u) -eq 0 ];
 then # you are root, set red colour prompt
@@ -83,3 +88,4 @@ else # normal
 #  PS1="[\[\033[32m\]\u\[\033[0m\]@\[\033[34m\]\h \[\033[31m\]\w\[\033[0m\]]$ "
   PS1="$BRIGHT_GREEN\u$WHITE@$BRIGHT_BLUE\h $RED\w$WHITE$ "
 fi
+
