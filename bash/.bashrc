@@ -50,7 +50,10 @@ bind space:magic-space
 ########################################
 export PYTHONWARNINGS="ignore:Unverified HTTPS request"
 export WORKON_HOME=$HOME/.virtualenvs
-export PATH=~/bin:$PATH
+
+### PATH
+export PATH=~/.local/bin:$PATH
+export CDPATH=~/.local/src:$CDPATH
 
 
 ## exports before source'ing!
