@@ -65,7 +65,7 @@ files_to_source=(
   ".bash_aliases"
   ".bash_functions"
   # ".bash_profile"
-  ".bashrc.mac"
+  ".bashrc.macos"
   ".bashrc.work"
   ".openstack_auth"
   #"$(brew --prefix)/etc/bash_completion.d/brew"
