@@ -1,1 +1,2 @@
 alias rm="rm -iv"
+PATH="/Users/joe6623/Library/Python/3.8/bin:$PATH"
